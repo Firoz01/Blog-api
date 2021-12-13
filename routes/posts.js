@@ -5,6 +5,7 @@ const Post = require("../models/Post");
 //CREATE POST
 router.post("/", async (req, res) => {
   const newPost = new Post(req.body);
+  console.log(newPost);
   try {
     const savedPost = await newPost.save();
     res.status(200).json(savedPost);
@@ -69,6 +70,7 @@ router.get("/:id", async (req, res) => {
 
 //GET ALL POSTS
 router.get("/", async (req, res) => {
+  console.log("GET ALL POSTS");
   const username = req.query.user;
   const catName = req.query.cat;
   try {
